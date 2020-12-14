@@ -1,0 +1,57 @@
+<div class="m-4  bg-light">
+    <h4 style="font-family: 'Roboto', sans-serif; text-align: center;">Login</h4>
+    <div class="container">
+        
+        <form novalidate #form ="ngForm" (ngSubmit)="signUp(form)">
+            <div >
+                <div class="form-group">
+                    <input name="name" type="text" class="form-control" placeholder="name" ngModel #name="ngModel"
+                     required>
+                     <span *ngIf="!name.valid && name.touched" class="form-control bg-danger m-1">Please enter name</span>
+                </div>
+                <div class="form-group">
+                    <input name="surName" type="text" class="form-control" placeholder="surName" ngModel #surName="ngModel"
+                    required>
+                    <span *ngIf="!surName.valid && surName.touched" class="form-control bg-danger m-1">Please enter SurName</span>
+                </div>
+                <div class="form-group">
+                    <input name="email" type="email" class="form-control" placeholder="Email Address" ngModel #email="ngModel"
+                     required >
+                     <span *ngIf="!email.valid && email.touched" class="form-control bg-danger m-1">Please enter email</span>
+                </div>
+
+                <div class="form-group">
+                    <input name="password" type="password" class="form-control" placeholder="Password" ngModel #password="ngModel"
+                     required>
+                     <span *ngIf="!password.valid && password.touched" class="form-control bg-danger m-1">Please enter password</span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Sign Up">
+                </div>
+
+                <div class="form-group">
+                    <span class="or"><span class="orInner">Or</span></span>
+                </div>
+
+                <!-- Continue with Google -->
+                <div class="form-group">
+                    <button class="btn btn-outline-primary m-2" (click)="GoogleAuth()">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                    </button>
+                    <!-- Continue with Facebook -->   <!--(click)="authService.FacebookAuth()"-->
+                    <button class="btn btn-outline-primary m-2">
+                    <i class="fab fa-facebook-square"></i>
+                    Continue with Facebook
+                    </button> 
+                </div>
+                
+            </div>
+        </form>
+        <div class="form-group" style="font-weight:bold;">
+        Already have an account?<button class="btn btn-light m-2" routerLink="/login">Log In</button>
+        </div>
+
+    </div>
+</div>

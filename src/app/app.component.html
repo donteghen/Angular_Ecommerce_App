@@ -1,0 +1,111 @@
+<!--Header/Menu-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" [attr.aria-expanded]>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav">
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/store" routerLinkActive="active">Store</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+      </li>
+    </ul>
+
+    <ul class=" navbar-nav ">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login"><i class="fas fa-user" style="margin-right: 4px;"></i>Sign Up / Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register"><i class="fas fa-shopping-cart" style="margin-right: 4px;"></i>Cart</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+
+<!--Instagram pictures Area-->
+<istagramView-component></istagramView-component>
+
+
+<!--footer area-->
+<footer class="footer mt-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-4">
+              <div class="footer__about">
+                  <div class="footer__logo">
+                      <a href="./index.html"><img src="../assets/donnys.png" alt=""></a>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  cilisis.</p>
+                  <div class="footer__payment">
+                      <a href="#"><img src="../assets/payment-1.png" alt=""></a>
+                      <a href="#"><img src="../assets/payment-1.png" alt=""></a>
+                      <a href="#"><img src="../assets/payment-1.png" alt=""></a>
+                      <a href="#"><img src="../assets/payment-1.png" alt=""></a>
+                      <a href="#"><img src="../assets/payment-1.png" alt=""></a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-4">
+              <div class="footer__widget">
+                  <h6>Quick links</h6>
+                  <ul>
+                      <li><a href="#">Dashboard</a></li>
+                      <li><a href="#">Store</a></li>
+                      <li><a href="#">Contact</a></li>
+                      <li><a href="#">FAQ</a></li>
+                  </ul>
+              </div>
+          </div>
+         <!-- <div class="col-3">
+              <div class="footer__widget">
+                  <h6>Account</h6>
+                  <ul>
+                      <li><a href="#">My Account</a></li>
+                      <li><a href="#">Orders Tracking</a></li>
+                      <li><a href="#">Checkout</a></li>
+                      <li><a href="#">Wishlist</a></li>
+                  </ul>
+              </div>
+          </div>-->
+          <div class="col-4">
+            <div class="form-group">
+                <label><strong>NEWSLETTER</strong></label>
+                <form action="#">
+                    <input class = "form-control m-2" type="text" placeholder="Email">
+                    <button type="submit" class="btn btn-light">Subscribe</button>
+                </form>
+                <div class="footer__social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>                  
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              <div class="copy text-center m-2">
+                  <p class=" m-2">Copyright © 2020 All rights reserved | This template is made with <i class="fas fa-heart" aria-hidden="true"></i> by <a href="donaldteghen@gmail.com" target="_blank">Donald_Teghen</a></p>
+              </div>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </div>
+      </div>
+  </div>
+</footer>

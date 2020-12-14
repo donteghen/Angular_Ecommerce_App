@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angecommerce-22bf5": {
+      "hosting": {
+        "AngEcommerce": [
+          "angecommerce-22bf5"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="container-fluid m-2">
+    <div class="row">
+        <div class="col-sm-3 ">
+            <p>{{selectedCat}}  {{maxPrice}}  {{minPrice}}</p>
+            <div class="form-group ">
+                <label for="slecet">Category</label>
+                <select name="category" id="category" (change) = "selectedCat = $event.target.value"  class="form-control">
+                    <option >All</option>
+                    <option [value] = "cat" *ngFor = "let cat of categories" >{{cat}}</option>
+                </select>
+            </div>
+            <div class="form-group ">
+                <label for="MaxPrice">Highest Price</label>
+                <input class="form-control" type="number" placeholder="max price.." (change)="maxPrice = $event.target.value">
+            </div>
+            <div class="form-group ">
+                <label for="minPrice">Lowest Price</label>
+                <input class="form-control" type="number" placeholder="min price.." (change)="minPrice = $event.target.value">
+            </div>
+            <input type="button" class="form-control btn btn-dark" value="Apply" (click) = "getProducts()">
+        </div>
+        
+        <div class="col-sm-9">
+            <div class="row border-bottom form-inline">
+                <div class="form-group ml-4 mb-2" >
+                    <div class="form-control"><span >{{getProducts().length}} Items found</span></div>
+                    <div class="ml-4">
+                        <select name="category" id="category" (change) = "getSortedProducts($event.target.value)"  class="form-control">
+                            <option >None</option>
+                            <option [value] = "choice" *ngFor = "let choice of sortType" >{{choice}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row mt-1">
+                <div class="col-md-4 card " *ngFor="let product of getProducts()|paginate: { itemsPerPage: itemPerView, currentPage: currPage }">
+                    
+                        <div class="card-block">
+                            <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
+                            <div class="card-body">
+                              <Span style="float: right;"><i style=" font-size:2em; color: rgb(223, 143, 183);" class="fas fa-gift"></i></Span>
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text">{{product.price |currency:"USD"}}</p>
+                            <a href="#" class="btn btn-primary"> <i class="fas fa-shopping-cart"></i>add to cart</a>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+     <div class="d-flex flex-row-reverse m-2"><pagination-controls (pageChange)="currPage = $event"></pagination-controls> </div>    
+</div>
+ 
+<backToTop-component></backToTop-component>
