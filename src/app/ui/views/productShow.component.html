@@ -1,15 +1,15 @@
 <div class="py-5" *ngIf="products" >
-    <div class="container">
+    <div class="container-fluid">
       <div class="row hidden-md-up">
         <div class="col-md-3" *ngFor="let product of getViewProducts()">
             <div class="card">
                 <div class="card-block">
                     <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
                     <div class="card-body">
-                      <Span style="float: right;"><i style=" font-size:2em; color: hotpink;" class="fas fa-gift"></i></Span>
+                      <Span style="float: right;"><i style=" font-size:2em; color: rgb(202, 4, 4);" class="fas fa-gift"></i></Span>
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{product.price |currency:"USD"}}</p>
-                    <a href="#" class="btn btn-primary"> <i class="fas fa-shopping-cart"></i>add to cart</a>
+                    <a href="#" class="btn btn-dark"> <i class="fas fa-shopping-cart"></i>add to cart</a>
                     </div>
                 </div>
             </div>

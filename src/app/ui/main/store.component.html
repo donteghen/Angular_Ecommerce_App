@@ -34,18 +34,16 @@
             </div>
         
             <div class="row mt-1">
-                <div class="col-md-4 card " *ngFor="let product of getProducts()|paginate: { itemsPerPage: itemPerView, currentPage: currPage }">
-                    
-                        <div class="card-block">
-                            <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
-                            <div class="card-body">
-                              <Span style="float: right;"><i style=" font-size:2em; color: rgb(223, 143, 183);" class="fas fa-gift"></i></Span>
-                            <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.price |currency:"USD"}}</p>
-                            <a href="#" class="btn btn-primary"> <i class="fas fa-shopping-cart"></i>add to cart</a>
-                            </div>
+                <div class="col-md-4 card " *ngFor="let product of getProducts()| paginate: { itemsPerPage: itemPerView, currentPage: currPage }">
+                    <div class="card-block">
+                        <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap" routerLink="/store/{{product.id}}">
+                        <div class="card-body">
+                            <Span style="float: right;"><i style=" font-size:2em; color: rgb(223, 143, 183);" class="fas fa-gift"></i></Span>
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">{{product.price |currency:"USD"}}</p>
+                        <a href="#" class="btn btn-primary"> <i class="fas fa-shopping-cart"></i>add to cart</a>
                         </div>
-                    
+                    </div>
                 </div>
             </div>
         </div>

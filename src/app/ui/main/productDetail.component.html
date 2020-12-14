@@ -1,0 +1,41 @@
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="main" style="height: 400px;">
+                <img [src] = "activeSrc" width="100%" height="100%">
+            </div>
+            <div class="mt-1" style="height: 100px;">
+                <span *ngFor = "let pic of imgArray" >
+                    <img class="rounded" [src]="pic" (click)="srcChanged(pic)" width="25%" height="100%" >
+                </span>
+            </div>
+        </div>    
+        <div class="col-sm-6" >
+            <div class="border-bottom">
+                <div class="float-right">
+                    <ngb-rating [(rate)]="currentRate"></ngb-rating><hr><pre>Product Review: <b>{{currentRate}}</b></pre>
+                </div>
+                <div >
+                    <h3>{{product.name}}</h3>
+                    <h6>{{product.category}}</h6>
+                    <h4 style="color: red;">{{product.price | currency:"USD"}}</h4>
+                </div>
+               
+            </div>
+            <div class="border-bottom mt-1">
+                <h6>Colors : <span [ngStyle] = "{'color':activeColor}">{{activeColor}}</span></h6>
+                <span *ngFor ="let col of colors" (click) ="activeColor = col">
+                    <span class="mr-3" style="font-size: 2em;" [ngStyle] ="{'color': col}"><i class="far fa-dot-circle"></i></span>
+                </span>
+
+            </div>
+            <div class="border-bottom mt-1">
+                <h4>Product Description</h4>
+                <div class="bg-light">{{product.description}}</div>
+            </div>
+            <div class="mt-1">
+                <button class="btn btn-dark btn-block btn-lg"><i class="fas fa-shopping-cart mr-2"></i>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,8 @@
 .hold {
     position: relative;
-    text-align: center;
+    text-align: center; 
     color: white;
+
   }
   
   .overlay {
@@ -9,4 +10,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+  
+    /* transition effect. not necessary */
+    transition: opacity .5s, visibility .5s;
+  }
+
+  .hold:hover .overlay {
+    visibility: visible; 
+    opacity: 1;
+  }
+  .hold:hover .imgg{
+   
+    opacity: 0.4; 
+    transition: opacity .5s, visibility .5s;
   }

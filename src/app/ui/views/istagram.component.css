@@ -8,9 +8,7 @@
     bottom: 50%;
     left: 25%;
     right:0;
-    background: rgba(29, 154, 39, 0.72);
-    color: rgb(0, 0, 0);
-    visibility: hidden;
+    color: black !important;
     opacity: 0;
   
     /* transition effect. not necessary */
@@ -18,7 +16,7 @@
   }
   
   .img_wrap:hover .desc {
-    visibility: visible;
+    visibility: visible; 
     opacity: 1;
   }
   .img_wrap:hover .imgg{
