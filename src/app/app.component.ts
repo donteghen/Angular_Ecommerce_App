@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChange } from '@angular/core';
+import { Cart } from 'src/models/cart.model';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AngEcommerce';
   public isCollapsed : boolean=true;
+  
+  constructor(public cartService : Cart){ }
+
+ 
 }

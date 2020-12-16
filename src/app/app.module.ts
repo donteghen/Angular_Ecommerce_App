@@ -1,3 +1,5 @@
+import { OrderService } from './../services/order.service';
+import { ConnectionService } from './../services/connection.service';
 import { BackToTopComponent } from './ui/main/backToTop.component';
 import { Cart } from './../models/cart.model';
 import { Order } from './../models/order.model';
@@ -50,7 +52,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AngularFirestoreModule, NgxPaginationModule,
     NgbModule, FormsModule, HttpClientModule, CommonModule
   ],
-  providers: [ProductService, ProductRepository, Order, Cart],
+  providers: [ProductService, ProductRepository, Order, Cart, ConnectionService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

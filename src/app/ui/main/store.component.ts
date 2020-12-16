@@ -1,11 +1,13 @@
+
 import { ProductService } from 'src/services/productService';
 import { Component } from '@angular/core';
 import { Product } from 'src/models/product.model';
+import { Cart } from 'src/models/cart.model';
 
 @Component({
     selector:"store-component",
     templateUrl:"store.component.html",
-    styles:[".page{position:y}",".card:hover{opacity:0.6}"] 
+    styles:[".page{position:y}",".imgg:hover{opacity:0.6}"] 
 })
 export class StoreComponent{
     public products:Product[];
@@ -17,7 +19,7 @@ export class StoreComponent{
     sortChoice:string = null;
     currPage:number = 1;
     itemPerView:number = 9;
-    constructor(public prodService: ProductService){
+    constructor(public prodService: ProductService, private cartService:Cart){
         this.prodService.getProducts().subscribe(data => {
             this.products = data;
             this.categories = data.map(p => p.category).filter((p, index, array) => array.indexOf(p) == index);
@@ -56,5 +58,11 @@ export class StoreComponent{
                 break;  
                  
         }
+    }
+
+    addToCart(product:Product){
+        console.log(this.cartService.lines);
+        this.cartService.addLine(product);
+        console.log(this.cartService.lines);
     }
 }

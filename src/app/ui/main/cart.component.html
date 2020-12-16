@@ -1,0 +1,47 @@
+<div class="container-fluid m-2">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th >Quantity</th>
+          <th >Item</th>
+          <th >Price</th>
+          <th >Item Total</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="cartService.lines.length == 0">
+                <td colspan="5" class="text-center">Your cart is empty!</td>
+             </tr>
+            <tr *ngFor="let line of cartService.lines;">
+            <th scope="row">
+                <input type="number" class="form-control" style="width:5em" (change)="quantityChange(line.product, $event.target.value)" [value]="line.quantity" />
+            </th>
+            <td>{{ line.product.name}}</td>
+            <td>{{ line.product.price | currency:"USD":"symbol":"2.2-2"}}</td>
+            <td>{{line.lineTotal | currency:"USD":"symbol":"2.2-2"}}  <button class="btn btn-sm btn-danger text-right"
+                (click)="cartService.removeLine(line.product.id)"><i class="fas fa-trash-alt ml-2">Delete</i>
+                </button></td>
+            
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan=3 class="text-right">Total:</td>
+                <td>{{cartService.cartPrice | currency:"USD":"symbol":"2.2-2"}}</td>
+            </tr>
+        </tfoot>
+      </table> 
+      <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <button class="btn btn-dark m-1" routerLink="/store">Continue Shopping</button>
+                <button class="btn btn-dark m-1" routerLink="/checkout"
+                  [disabled]="cartService.lines.length == 0 || !connected">{{connected? 'Checkout' : 'OffLine'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

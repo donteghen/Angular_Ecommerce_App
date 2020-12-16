@@ -25,7 +25,10 @@
         <a class="nav-link" routerLink="/login"><i class="fas fa-user" style="margin-right: 4px;"></i>Sign Up / Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/register"><i class="fas fa-shopping-cart" style="margin-right: 4px;"></i>Cart</a>
+        <a class="nav-link" routerLink="/cart">
+          <span *ngIf="cartService.itemCount === 0"><i class="fas fa-shopping-cart" style="margin-right: 4px;"></i>Empty Cart</span>
+          <span *ngIf="cartService.itemCount > 0"><i class="fas fa-shopping-cart" style="margin-right: 4px;"></i>{{cartService.itemCount}} Cart items</span>
+        </a>
       </li>
       
     </ul>

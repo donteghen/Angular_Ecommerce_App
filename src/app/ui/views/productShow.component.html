@@ -4,16 +4,16 @@
         <div class="col-md-3" *ngFor="let product of getViewProducts()">
             <div class="card">
                 <div class="card-block">
-                    <img class="card-img-top" src="https://source.unsplash.com/random" alt="Card image cap">
+                    <img class="card-img-top imgg" src="https://source.unsplash.com/random" alt="Card image cap" routerLink="/store/{{product.id}}">
                     <div class="card-body">
                       <Span style="float: right;"><i style=" font-size:2em; color: rgb(202, 4, 4);" class="fas fa-gift"></i></Span>
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{product.price |currency:"USD"}}</p>
-                    <a href="#" class="btn btn-dark"> <i class="fas fa-shopping-cart"></i>add to cart</a>
+                    <a (click)="addToCart(product)" class="btn btn-dark"> <i class="fas fa-shopping-cart"></i>add to cart</a>
                     </div>
                 </div>
             </div>
         </div>
       </div>
     </div>
-</div>
+</div> 

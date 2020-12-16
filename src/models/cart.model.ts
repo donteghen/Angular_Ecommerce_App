@@ -36,7 +36,7 @@ export class Cart {
                 this.itemCount = 0;
                 this.cartPrice = 0;
                 this.lines.forEach(l => {
-                    this.itemCount += l.quantity;
+                this.itemCount += l.quantity;
                 this.cartPrice += (l.quantity * l.product.price);
                 })
         }
