@@ -24,16 +24,36 @@ export class ProductDetailComponent implements OnInit{
 
     // working part
     product : Product;
-    constructor(public prodService : ProductService, public cart:Cart, private activeRoute: ActivatedRoute){
+    relatedProducts:Product[];
+    paramid :number
+    constructor(public prodService : ProductService, public cartService:Cart, private activeRoute: ActivatedRoute){
         
     }
-    ngOnInit(){
+    /*ngOnInit(){
         const id = +this.activeRoute.snapshot.paramMap.get('id');
          this.prodService.getProducts().subscribe(data =>{
-         this.product = data.find(p => p.id === id)
-        });
-    }
+         this.product = data.find(p => p.id === id);
+         this.relatedProducts = data.filter(p => p.category == this.product.category);
+         
+        });*/
+
+    ngOnInit(){
+     this.activeRoute.params.subscribe(params =>{
+         let id = +params['id'];
+         if(id != null){
+             this.paramid = id;
+             this.prodService.getProducts().subscribe(data =>{
+                 this.product = data.find(p => p.id === id);
+                 this.relatedProducts = data.filter(p => p.category == this.product.category);
+             });
+         }
+     });
+    // this.prodService.getProducts().
+    }    
+       
+    
     srcChanged(src:string){
         this.activeSrc = src;
     }
+
 }
