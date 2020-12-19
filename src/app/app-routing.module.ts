@@ -1,3 +1,6 @@
+import { UserComponent } from './ui/main/user.component';
+import { ForgotPasswordComponent } from './ui/main/forgotPassword.component';
+import { EmailConfirmComponent } from './ui/main/emailConfirm.component';
 import { NotFoundComponent } from './ui/main/notFound.component';
 import { ProductDetailComponent } from './ui/main/productDetail.component';
 import { CheckoutComponent } from './ui/main/checkout.component';
@@ -19,6 +22,9 @@ const routes: Routes = [
   {path:"contact", component:ContactComponent},
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
+  {path:'emailVerify', component:EmailConfirmComponent},
+  {path:'passwordReset', component:ForgotPasswordComponent},
+  {path:'user', component:UserComponent},
   {path:"cart", component:CartComponent},
   {path:"checkout", component:CheckoutComponent},
   { path: '',   redirectTo: '/dashboard', pathMatch: 'full' }, 

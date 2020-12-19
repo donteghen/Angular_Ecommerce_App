@@ -1,3 +1,4 @@
+import { AuthenticationService } from 'src/services/auth.service';
 import { Component, OnChanges, SimpleChange } from '@angular/core';
 import { Cart } from 'src/models/cart.model';
 
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'AngEcommerce';
   public isCollapsed : boolean=true;
   
-  constructor(public cartService : Cart){ }
+  constructor(public cartService : Cart, public authService:AuthenticationService){ }
 
  
 }

@@ -1,5 +1,7 @@
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import { AuthenticationService } from 'src/services/auth.service';
+import { User } from 'src/models/user.model';
 
 @Component({
     selector:"register-component",
@@ -7,19 +9,35 @@ import { Component } from '@angular/core';
 })
 
 export class RegisterComponent{
-
-    constructor(){}
-
-    signUp(form: NgForm){
-        if(form.valid && form.submitted){
-            console.log(JSON.stringify(form.value));
-            console.log(form.value.name);
-            form.resetForm();
+    form:FormGroup;
+    isSubmitted : boolean = false;
+    errorMEssage : string;  
+    constructor(public authService:AuthenticationService, public fb:FormBuilder){
+        this.form = fb.group({
+            email:['', Validators.required],
+            password:['', Validators.required]
+          });
         }
-        
-    }
-  
-    GoogleAuth(){
+        get email(): any {
+          return this.form.get('email');
+        }
+        get password(): any {
+          return this.form.get('password');
+        }
+    
+        signUp(){
 
+            this.isSubmitted = true;
+            if(this.form.valid){
+              return this.authService.signUp(this.form.value.email, this.form.value.password);
+            }
+            else{
+              this.errorMEssage = "Invalid inputs submitted! Please check each field carefully"
+            }
+        
+        }
+    
+    GoogleAuth(){
+        this.authService.signInWithGoogle();
     }
 }

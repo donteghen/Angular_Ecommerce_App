@@ -1,0 +1,53 @@
+<nav class="navbar navbar-dark bg-dark ">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">
+      <img class="brand-logo" src="../assets/logo.png" alt="Donald's Logo">
+    </a>
+</nav>
+  
+  <!-- Sidebar navigation -->
+  <div class="container-fluid">
+    <div class="row m-2">
+      <div class="col-2 border-right flex-grow:1">
+          <div class="btn-group-vertical">
+            <button class="btn btn-outline-primary">
+            <a class="nav-link active">
+              <i class="far fa-user"></i>User Profile
+            </a>
+          </button>
+        
+        
+          <button class="btn btn-outline-primary">
+            <a class="nav-link" (click)="authService.signOut()">
+              <i class="fas fa-sign-out-alt"></i> Log out
+            </a>
+          </button>  
+        </div>
+      </div>
+  
+      <!-- Main content -->
+      <div class="col-9">
+  
+          <div class="m-2 border-bottom">
+            <h1 class="h2"> User Profile</h1>
+          </div>
+          <!-- Show user data when logged in -->
+          <div class="row" *ngIf="authService.userData as user">
+            <div class="col-md-12">
+              <div class="media">
+                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '../assets/face.png'}}"
+                  alt="{{user.displayName}}">
+                <div class="media-body">
+                  <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                  <p>User ID: <strong>{{user.uid}}</strong></p>
+                  <p>Email: <strong>{{user.email}}</strong></p>
+                  <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+      </div>
+      
+  
+    </div>
+  </div>

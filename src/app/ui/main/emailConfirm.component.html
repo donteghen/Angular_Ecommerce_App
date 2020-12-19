@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="displayTableCell">
+  
+      <div class="text-center">
+        <h3>Thank You for Registering</h3>
+  
+        <div class="form-group" *ngIf="authService.userData as user">
+          <p >We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+          <p >Please check your email and click on the link to verfiy your email address.</p>
+        </div>
+        
+        <!-- Calling SendVerificationMail() method using authService Api -->
+        <div class="form-group">
+          <button type="button" class=" form-control btn btn-primary" (click)="authService.sendVerificationEmail()">
+            <i class="fas fa-redo-alt"></i>
+            Resend Verification Email
+          </button>
+        </div>
+  
+      
+  
+      <div class="form-group"
+        style="font-weight: bold"> Go back to?<button class="btn btn-outline-primary m-2" routerLink="/login"> Sign in</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>

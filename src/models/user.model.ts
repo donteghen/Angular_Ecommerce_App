@@ -4,8 +4,9 @@ import { Order } from './order.model';
 export class User {
     id: string;
     name: string;
-    surName:String;
+    surName:string;
     password:string;
     email:string;
+    emailVerified: boolean;  
     orders?: Order[];
 }

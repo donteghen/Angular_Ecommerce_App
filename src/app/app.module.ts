@@ -1,3 +1,5 @@
+import { ForgotPasswordComponent } from './ui/main/forgotPassword.component';
+import { EmailConfirmComponent } from './ui/main/emailConfirm.component';
 import { OrderService } from './../services/order.service';
 import { ConnectionService } from './../services/connection.service';
 import { BackToTopComponent } from './ui/main/backToTop.component';
@@ -32,27 +34,30 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import { ProductService } from 'src/services/productService';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthenticationService } from 'src/services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent, CartComponent, CheckoutComponent, ContactComponent, DashboardComponent, LoginComponent, ProductDetailComponent,
     RegisterComponent, StoreComponent, UserComponent, CarouselComponent,IstagramViewComponent, OfferComponent, ProductMixStylesComponent,
-    ProductShowComponent, WidgetComponent,AboutComponent, NotFoundComponent, BackToTopComponent 
+    ProductShowComponent, WidgetComponent,AboutComponent, NotFoundComponent, BackToTopComponent, EmailConfirmComponent, ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    
     AngularFireAnalyticsModule,
     AngularFirestoreModule, NgxPaginationModule,
-    NgbModule, FormsModule, HttpClientModule, CommonModule
+    NgbModule, FormsModule, HttpClientModule, CommonModule, ReactiveFormsModule
   ],
-  providers: [ProductService, ProductRepository, Order, Cart, ConnectionService, OrderService],
+  providers: [ProductService, Order, Cart, ConnectionService, OrderService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

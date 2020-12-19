@@ -1,42 +1,28 @@
-<div class="m-4 text-center bg-light">
-    <h4 style="font-family: 'Roboto', sans-serif;">Login</h4>
+<div class="m-4  bg-light">
+    <h4 class="text-center">Login</h4>
     <div class="container">
-  
-        <form novalidate #loginform = "ngForm" (ngSubmit) ="onSubmit(loginform)">
-            <div>
-                <div class="form-group">
-                  <input name="email" type="email" class="form-control" placeholder="Email...." ngModel #email="ngModel"
-                   required >
-                   <span *ngIf="!email.valid && email.touched" class="form-control bg-danger m-1">Please enter password</span>
-                </div>
-          
-                <div class="form-group">
-                  <input name="password"  type="password"  class="form-control"  placeholder="Password" ngModel #password="ngModel"
-                   required />
-                   <span *ngIf="!password.valid && password.touched" class="form-control bg-danger m-1">Please enter password</span>
-                </div>
-          
-                <!-- Calling SignIn Api from AuthService -->
-                <div class="form-group">
-                  <input type="submit" class="btn btn-primary btn-lg btn-block" value="Log in" >
-                </div>
-          
-                <div class="form-group">
-                  <span class="or"><span class="orInner">Or</span></span>
-                </div>
-          
-                 
-                <div class="form-group">
-                  <button class="btn btn-outline-primary" (click)="GoogleAuth()">
-                  <i class="fab fa-google"></i>
-                    Log in with Google
-                  </button>
-                  <div><button class="btn btn-link m-2" routerLink="/login"> Forgot Password</button></div>
-                <div>Don't have an account?<button class="btn btn-light m-2" routerLink="/register"> Sign Up</button></div>
-                </div>
-              
-          
-              </div>
-        </form>
+      <form [formGroup] = form>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" class="form-control" formControlName="email" required>
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="text" class="form-control" formControlName="password" required>
+        </div>
+        <div class="form-group">
+            <button [disabled] = "!form.valid" class="btn btn-dark btn-block" (click)="login()">Login</button>
+        </div>
+    </form>
+    <div class="text-center">
+        <div class="form-group">
+          <button class="btn btn-outline-primary" (click)="GoogleAuth()">
+          <i class="fab fa-google"></i>
+            Log in with Google
+          </button>
+          <div><button class="btn btn-link m-2" routerLink="/passwordReset"> Forgot Password</button></div>
+          <div>Don't have an account?<button class="btn btn-light m-2" routerLink="/register"> Sign Up</button></div>
+      </div>
+    </div>
     </div>
 </div>
