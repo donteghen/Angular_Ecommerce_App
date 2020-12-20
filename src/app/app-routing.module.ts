@@ -1,3 +1,5 @@
+import { UserGuard } from './../services/userGuard';
+import { CheckoutGuard } from './../services/checkoutGuard';
 import { UserComponent } from './ui/main/user.component';
 import { ForgotPasswordComponent } from './ui/main/forgotPassword.component';
 import { EmailConfirmComponent } from './ui/main/emailConfirm.component';
@@ -24,10 +26,10 @@ const routes: Routes = [
   {path:"register", component:RegisterComponent},
   {path:'emailVerify', component:EmailConfirmComponent},
   {path:'passwordReset', component:ForgotPasswordComponent},
-  {path:'user', component:UserComponent},
+  {path:'user', component:UserComponent, canActivate:[UserGuard]}, 
   {path:"cart", component:CartComponent},
-  {path:"checkout", component:CheckoutComponent},
-  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' }, 
+  {path:"checkout", component:CheckoutComponent, canActivate:[CheckoutGuard]},
+  {path: '',   redirectTo: '/dashboard', pathMatch: 'full' }, 
   {path:"**", component:NotFoundComponent}
 ];
 

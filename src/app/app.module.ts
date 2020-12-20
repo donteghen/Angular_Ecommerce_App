@@ -1,3 +1,5 @@
+import { CheckoutGuard } from './../services/checkoutGuard';
+import { UserGuard } from './../services/userGuard';
 import { ForgotPasswordComponent } from './ui/main/forgotPassword.component';
 import { EmailConfirmComponent } from './ui/main/emailConfirm.component';
 import { OrderService } from './../services/order.service';
@@ -57,7 +59,7 @@ import { AuthenticationService } from 'src/services/auth.service';
     AngularFirestoreModule, NgxPaginationModule,
     NgbModule, FormsModule, HttpClientModule, CommonModule, ReactiveFormsModule
   ],
-  providers: [ProductService, Order, Cart, ConnectionService, OrderService, AuthenticationService],
+  providers: [ProductService, Order, Cart, ConnectionService, OrderService, AuthenticationService, UserGuard, CheckoutGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
