@@ -1,3 +1,8 @@
+import { ManageProductComponent } from './admin/manage-product/manage-product.component';
+import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-order-detail.component';
+import { AdminProductDetailComponent } from './admin/admin-product-detail/admin-product-detail.component';
+import { ManageOderComponent } from './admin/manage-oder/manage-oder.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { UserGuard } from './../services/userGuard';
 import { CheckoutGuard } from './../services/checkoutGuard';
 import { UserComponent } from './ui/main/user.component';
@@ -29,6 +34,11 @@ const routes: Routes = [
   {path:'user', component:UserComponent, canActivate:[UserGuard]}, 
   {path:"cart", component:CartComponent},
   {path:"checkout", component:CheckoutComponent, canActivate:[CheckoutGuard]},
+  {path:"admin-home", component:AdminHomeComponent},
+  {path:"admin-product", component:ManageProductComponent},
+  {path:"admin-product/:id", component:AdminProductDetailComponent},
+  {path:"admin-order", component:ManageOderComponent},
+  {path:"admin-order/:id", component:AdminOrderDetailComponent},
   {path: '',   redirectTo: '/dashboard', pathMatch: 'full' }, 
   {path:"**", component:NotFoundComponent}
 ];

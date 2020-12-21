@@ -10,6 +10,7 @@ export class CheckoutGuard implements CanActivate{
     constructor(public router:Router){}
     canActivate(route:ActivatedRouteSnapshot, next:RouterStateSnapshot):boolean{
         if(this.cartVisited){
+            this.cartVisited =false;
             if(route.component != CartComponent){
                 this.router.navigateByUrl('/store');
                 return false;

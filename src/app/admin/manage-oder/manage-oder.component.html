@@ -1,0 +1,43 @@
+
+<div class="container-fluid mt-4">
+    <div>
+
+            <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">No of Items</th>
+                <th scope="col">Total</th>
+                <th scope="col">Shipping Status</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let order of orderData">
+                
+                <td>{{order.id}}</td>
+                <td>{{order.cart.itemCount | number}}</td>
+                <td>{{order.cart.cartPrice | number | currency:"USD"}}</td>
+                <td>{{order.shipped}}</td>
+                <td>
+                    <div>
+                        <button class="btn btn-dark mr-2" routerLink="/admin-order/:id"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-dark mr-2" (click)="prodService.deleteOrder(order.id)"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+    </div>
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="orders.length" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+        </ngb-pagination>
+      
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+          <option [ngValue]="3">3 items per page</option>
+          <option [ngValue]="6">4 items per page</option>
+          <option [ngValue]="9">6 items per page</option>
+        </select>
+      </div>
+</div>
+

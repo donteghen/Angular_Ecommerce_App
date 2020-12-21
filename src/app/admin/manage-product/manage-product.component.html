@@ -1,0 +1,47 @@
+<div class="container-fluid mt-4">
+    <div>
+        <form>
+            <div class="form-group form-inline">
+                Full text search: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+            </div>
+            </form>
+            
+            <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let product of prodData; index as i">
+                
+                <td><ngb-highlight [result]="product.id" [term]="filter.value"></ngb-highlight></td>
+                <td><ngb-highlight [result]="product.name" [term]="filter.value"></ngb-highlight></td>
+                <td><ngb-highlight [result]="product.category" [term]="filter.value"></ngb-highlight></td>
+                <td><ngb-highlight [result]="product.price" [term]="filter.value"></ngb-highlight></td>
+                <td>
+                    <div>
+                        <button class="btn btn-dark mr-2" routerLink="admin-product/:id" ><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-dark mr-2" (click)="prodService.deleteProduct(product.id)"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            </table>
+    </div>
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="products.length" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+        </ngb-pagination>
+      
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+          <option [ngValue]="2">2 items per page</option>
+          <option [ngValue]="4">4 items per page</option>
+          <option [ngValue]="6">6 items per page</option>
+        </select>
+      </div>
+</div>
+

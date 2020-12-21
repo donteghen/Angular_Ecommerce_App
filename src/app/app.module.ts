@@ -43,12 +43,20 @@ import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthenticationService } from 'src/services/auth.service';
+import { ManageOderComponent } from './admin/manage-oder/manage-oder.component';
+import { ManageProductComponent } from './admin/manage-product/manage-product.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminProductDetailComponent } from './admin/admin-product-detail/admin-product-detail.component';
+import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-order-detail.component';
+
 
 @NgModule({
   declarations: [
     AppComponent, CartComponent, CheckoutComponent, ContactComponent, DashboardComponent, LoginComponent, ProductDetailComponent,
     RegisterComponent, StoreComponent, UserComponent, CarouselComponent,IstagramViewComponent, OfferComponent, ProductMixStylesComponent,
-    ProductShowComponent, WidgetComponent,AboutComponent, NotFoundComponent, BackToTopComponent, EmailConfirmComponent, ForgotPasswordComponent
+    ProductShowComponent, WidgetComponent,AboutComponent, NotFoundComponent, BackToTopComponent,
+     EmailConfirmComponent, ForgotPasswordComponent, ManageOderComponent, ManageProductComponent, AdminHomeComponent, AdminProductDetailComponent, AdminOrderDetailComponent,
+     
   ],
   imports: [
     BrowserModule,
@@ -57,7 +65,7 @@ import { AuthenticationService } from 'src/services/auth.service';
     
     AngularFireAnalyticsModule,
     AngularFirestoreModule, NgxPaginationModule,
-    NgbModule, FormsModule, HttpClientModule, CommonModule, ReactiveFormsModule
+    NgbModule, FormsModule, HttpClientModule, CommonModule, ReactiveFormsModule, 
   ],
   providers: [ProductService, Order, Cart, ConnectionService, OrderService, AuthenticationService, UserGuard, CheckoutGuard],
   bootstrap: [AppComponent]

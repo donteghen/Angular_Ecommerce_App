@@ -4,19 +4,19 @@ import { Order } from 'src/models/order.model';
 import { ProductService } from 'src/services/productService';
 @Injectable()
 export class OrderService {
-    private orders: Order[] = [];
+    private orders: Order[];
     private loaded: boolean = false;
-    constructor(private productService: ProductService) {}
-    loadOrders() {
+    constructor(private productService: ProductService) {
       this.loaded = true;
       this.productService.getOrders()
-      .subscribe(orders => this.orders = orders);
-      }
+      .subscribe(orders =>{ 
+        this.orders = orders
+        console.log(this.orders)
+      });
+    }
+   
 
     getOrders(): Order[] {
-      if (!this.loaded) {
-        this.loadOrders();
-      }
       return this.orders;
     }
 
