@@ -1,1 +1,31 @@
-<p>admin-order-detail works!</p>
+<div class="container-fluid">
+    <h3>Just a place holder for custom html</h3>
+
+    <div>
+        <form #form="ngForm" (ngSubmit)=saveChanges(form)>
+           
+            <div class="form-group">
+                <label>Customer:</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="order.name">
+            </div>
+            <div class="form-group">
+                <label>country:</label>
+               <input class="form-control" name="country" [(ngModel)]="order.country"/>
+            </div>
+            <div >
+                <label>Shipped:</label>
+                <input type="checkbox" class="m-2" name="state" [(ngModel)]="order.state">
+            </div>
+            <div class="form-group">
+                <p class="form-control">Items: {{order.cart.itemCount}}</p>
+                <p class="form-control">{{order.cart.cartPrice}}</p>
+            </div>
+            
+            
+            <div  class="text-center">
+                <button class="btn btn-dark m-2" type="submit">SaveChanges</button>
+                <button  class="btn btn-dark m-2" routerLink="/admin-order">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

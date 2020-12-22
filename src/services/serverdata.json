@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Kayak",
       "category": "Watersports",
-      "price": 275,
+      "price": "275.50",
       "description": "Nesciunt aperiam sint ut. Incidunt sit sed et. Ea sed voluptate rem quod iusto hic veniam repellat velit. Nihil est ipsam ipsum cum accusantium omnis laudantium voluptates quo. Ut itaque nulla est iste quibusdam placeat repellat est. Explicabo ullam fuga autem quod.",
       "available": true,
       "discountOffer": true

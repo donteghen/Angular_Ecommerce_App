@@ -11,6 +11,6 @@ export class Order {
     public zip: string;
     public country: string;
     public shipped: boolean = false;
-    constructor(public cart: Cart) { }
+    constructor(public cart?: Cart) { }
    
 }

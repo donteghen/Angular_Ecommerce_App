@@ -25,7 +25,7 @@
                 <td><ngb-highlight [result]="product.price" [term]="filter.value"></ngb-highlight></td>
                 <td>
                     <div>
-                        <button class="btn btn-dark mr-2" routerLink="admin-product/:id" ><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-dark mr-2" routerLink="/admin-product/{{product.id}}"><i class="fas fa-edit"></i></button>
                         <button class="btn btn-dark mr-2" (click)="prodService.deleteProduct(product.id)"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </td>

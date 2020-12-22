@@ -21,7 +21,7 @@
                 <td>{{order.shipped}}</td>
                 <td>
                     <div>
-                        <button class="btn btn-dark mr-2" routerLink="/admin-order/:id"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-dark mr-2" routerLink="/admin-order/{{order.id}}"><i class="fas fa-edit"></i></button>
                         <button class="btn btn-dark mr-2" (click)="prodService.deleteOrder(order.id)"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </td>
