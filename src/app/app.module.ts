@@ -48,6 +48,7 @@ import { ManageProductComponent } from './admin/manage-product/manage-product.co
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminProductDetailComponent } from './admin/admin-product-detail/admin-product-detail.component';
 import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-order-detail.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -65,7 +66,7 @@ import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-orde
     
     AngularFireAnalyticsModule,
     AngularFirestoreModule, NgxPaginationModule,
-    NgbModule, FormsModule, HttpClientModule, CommonModule, ReactiveFormsModule, 
+    NgbModule, FormsModule, HttpClientModule, CommonModule, ReactiveFormsModule, ChartsModule
   ],
   providers: [ProductService, Order, Cart, ConnectionService, OrderService, AuthenticationService, UserGuard, CheckoutGuard],
   bootstrap: [AppComponent]
